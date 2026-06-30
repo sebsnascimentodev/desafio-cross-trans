@@ -1,0 +1,124 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #07090E;
+  --surf:   #0D1420;
+  --surf2:  #141F2E;
+  --blue:   #38BDF8;
+  --pink:   #F472B6;
+  --white:  #EEF4FF;
+  --muted:  #4E6A84;
+  --border: #1A2A3A;
+  --r:      14px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root { width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+h1, h2, h3, p { margin: 0; }
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section { padding: 96px 0; }
+
+.display {
+  font-family: Impact, 'Arial Narrow', Arial, sans-serif;
+  font-size: clamp(48px, 7.5vw, 82px);
+  line-height: .92;
+  letter-spacing: .015em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.heading {
+  font-family: Impact, 'Arial Narrow', Arial, sans-serif;
+  font-size: clamp(32px, 4.5vw, 54px);
+  line-height: .95;
+  letter-spacing: .015em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: block;
+  margin-bottom: .9rem;
+}
+
+.blue  { color: var(--blue); }
+.pink  { color: var(--pink); }
+.muted { color: var(--muted); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: .1s; }
+.reveal.d2 { transition-delay: .2s; }
+.reveal.d3 { transition-delay: .3s; }
+.reveal.d4 { transition-delay: .4s; }
+.reveal.d5 { transition-delay: .5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .85rem 1.75rem;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.btn-cta  { background: var(--blue); color: #05080D; }
+.btn-cta:hover  { transform: scale(1.025); box-shadow: 0 0 22px rgba(56,189,248,.4); }
+.btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(238,244,255,.25); }
+.btn-ghost:hover { background: rgba(238,244,255,.07); transform: scale(1.02); }
+
+.sh { margin-bottom: 3.25rem; }
+
+@media (max-width: 768px) {
+  section { padding: 68px 0; }
+}
+
+/* Telas estreitas de celular: o piso do clamp() não encolhe o
+   suficiente e palavras longas (ex: "ACOMPANHAMENTO") estouram a
+   largura da tela — reduz o piso só nesta faixa. */
+@media (max-width: 480px) {
+  .display { font-size: clamp(26px, 9.5vw, 48px); }
+  .heading { font-size: clamp(26px, 8.5vw, 32px); }
+}

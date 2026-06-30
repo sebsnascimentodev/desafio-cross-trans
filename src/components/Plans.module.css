@@ -1,0 +1,44 @@
+.sub { font-size: 15px; color: var(--muted); margin-top: 0.9rem; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.75rem; max-width: 840px; }
+.card {
+  background: var(--surf); border: 1px solid var(--border);
+  border-radius: 18px; padding: 2.1rem;
+  display: flex; flex-direction: column;
+  transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-3px); }
+.featured {
+  border-color: var(--blue);
+  background: linear-gradient(180deg, #0D1E30 0%, var(--surf) 100%);
+  box-shadow: 0 0 38px rgba(56,189,248,.1);
+}
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 0.28rem 0.85rem; border-radius: 100px;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 1.15rem; width: fit-content;
+}
+.badgeDef  { background: var(--surf2); border: 1px solid var(--border); color: var(--muted); }
+.badgeFeat { background: rgba(56,189,248,.14); border: 1px solid rgba(56,189,248,.38); color: var(--blue); }
+.name {
+  font-family: Impact, 'Arial Narrow', Arial, sans-serif;
+  font-size: 44px; letter-spacing: 0.02em;
+  text-transform: uppercase; margin-bottom: 0.45rem;
+}
+.desc { font-size: 14px; color: var(--muted); margin-bottom: 1.6rem; line-height: 1.55; }
+.price {
+  font-family: Impact, 'Arial Narrow', Arial, sans-serif;
+  font-size: 62px; line-height: 1; margin-bottom: 0.35rem;
+  font-variant-numeric: tabular-nums;
+}
+.note { font-size: 12px; color: var(--muted); margin-bottom: 1.6rem; }
+.divider { height: 1px; background: var(--border); margin-bottom: 1.4rem; }
+.features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; flex: 1; }
+.feat { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 14px; color: #8AACC4; }
+.check { color: var(--blue); flex-shrink: 0; font-size: 12px; margin-top: 3px; }
+.cta { justify-content: center; width: 100%; }
+.renew { font-size: 12px; color: var(--muted); text-align: center; margin-top: 0.9rem; }
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; max-width: 420px; }
+}

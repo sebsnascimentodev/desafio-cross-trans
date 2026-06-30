@@ -1,0 +1,142 @@
+.section { padding: 96px 0; overflow: hidden; }
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+  margin-bottom: 2.5rem;
+}
+.sub { font-size: 16px; color: var(--muted); max-width: 360px; text-align: right; line-height: 1.6; }
+.privacyNote { font-size: 12px; color: #3A5A70; margin-top: 0.4rem; display: block; }
+
+/* Scroll carousel */
+.scroll {
+  display: flex;
+  gap: 1.15rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem max(2rem, calc((100vw - 1200px) / 2 + 2rem)) 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.scroll::-webkit-scrollbar { height: 4px; }
+.scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Card */
+.card {
+  flex-shrink: 0;
+  width: 330px;
+  scroll-snap-align: start;
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Foto side-by-side */
+.imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 260px;
+  position: relative;
+}
+
+/* Wrapper de cada foto com máscara */
+.photoWrap {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/*
+ * Máscara de privacidade — aplica blur sobre a região do rosto.
+ * Usa backdrop-filter para borrar o conteúdo abaixo sem sobrepor
+ * uma camada opaca (mantém a foto visível, só borra).
+ */
+.faceMask {
+  position: absolute;
+  pointer-events: none;
+  /* backdrop-filter borra o que está atrás */
+  backdrop-filter: blur(14px) brightness(0.85);
+  -webkit-backdrop-filter: blur(14px) brightness(0.85);
+  /* Gradiente suave para a borda inferior da máscara não ficar cortada */
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  border-radius: 0 0 8px 8px;
+  z-index: 2;
+}
+
+/* Placeholder quando não há imagem */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #0C1520, #1A2535);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #2A4A60;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Divisor central */
+.sep {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,.15);
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* Labels ANTES / DEPOIS */
+.labels {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 4;
+  padding: 0 8px 8px;
+  gap: 2px;
+}
+.labelBefore,
+.labelAfter {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 4px;
+  width: fit-content;
+}
+.labelBefore { background: rgba(0,0,0,.65); color: var(--white); }
+.labelAfter  { background: rgba(56,189,248,.25); color: var(--blue); justify-self: end; }
+
+/* Info abaixo */
+.info { padding: 1.1rem 1.25rem; }
+.name { font-weight: 700; font-size: 14px; margin-bottom: 0.2rem; }
+.duration { font-size: 12px; color: var(--muted); }
+
+@media (max-width: 768px) {
+  .header { flex-direction: column; align-items: flex-start; }
+  .sub { text-align: left; }
+}

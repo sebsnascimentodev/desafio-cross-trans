@@ -1,0 +1,24 @@
+.list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2.75rem; max-width: 700px; }
+.item {
+  background: var(--surf); border: 1px solid var(--border);
+  border-radius: var(--r); overflow: hidden; transition: border-color 0.2s;
+}
+.open { border-color: rgba(56,189,248,.25); }
+.q {
+  width: 100%; background: none; border: none; padding: 1.2rem 1.4rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  color: var(--white); font-size: 15px; font-weight: 600;
+  text-align: left; cursor: pointer; transition: color 0.2s;
+}
+.q:hover { color: var(--blue); }
+.q:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.icon {
+  width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%;
+  background: rgba(56,189,248,.1); display: flex;
+  align-items: center; justify-content: center;
+  color: var(--blue); font-size: 18px; line-height: 1;
+  transition: transform 0.3s, background 0.2s;
+}
+.open .icon { transform: rotate(45deg); background: rgba(56,189,248,.2); }
+.answer { overflow: hidden; transition: max-height 0.35s ease; }
+.answerInner { padding: 0 1.4rem 1.2rem; font-size: 15px; color: #7A9BB8; line-height: 1.7; }

@@ -1,0 +1,20 @@
+.section { background: linear-gradient(180deg, var(--bg) 0%, #090D14 100%); }
+.grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.15rem; margin-top: 2.75rem; }
+.card {
+  background: var(--surf); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.85rem; position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.2); }
+.quote {
+  position: absolute; top: 1.25rem; right: 1.5rem;
+  font-size: 52px; line-height: 1;
+  color: rgba(56,189,248,.13); font-family: Georgia, serif;
+  pointer-events: none; user-select: none;
+}
+.text { font-size: 15px; color: #7A9BB8; line-height: 1.72; margin-bottom: 1.4rem; }
+.author { font-size: 13px; font-weight: 700; }
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr; max-width: 480px; }
+}
