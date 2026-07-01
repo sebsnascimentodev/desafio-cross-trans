@@ -36,7 +36,19 @@ public/images/before-after/
   aluno3-depois.jpg
   aluno4-antes.jpg
   aluno4-depois.jpg
+  aluno5-antes.jpg
+  aluno5-depois.jpg
+  aluno6-antes.jpg
+  aluno6-depois.jpg
+  aluno7-antes.jpg
+  aluno7-depois.jpg
+  aluno8-antes.jpg
+  aluno8-depois.jpg
 ```
+
+O carrossel se move sozinho lateralmente e também pode ser arrastado
+(mouse ou toque) a qualquer momento — o movimento automático pausa
+enquanto o mouse está sobre o carrossel ou durante o arraste.
 
 ### Máscaras de privacidade (blur no rosto)
 

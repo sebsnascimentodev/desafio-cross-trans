@@ -11,25 +11,32 @@
 .sub { font-size: 16px; color: var(--muted); max-width: 360px; text-align: right; line-height: 1.6; }
 .privacyNote { font-size: 12px; color: #3A5A70; margin-top: 0.4rem; display: block; }
 
-/* Scroll carousel */
+/* Scroll carousel — move sozinho e também pode ser arrastado (mouse/touch) */
 .scroll {
   display: flex;
   gap: 1.15rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding: 0.25rem max(2rem, calc((100vw - 1200px) / 2 + 2rem)) 1.5rem;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+  cursor: grab;
+  touch-action: pan-y;
 }
 .scroll::-webkit-scrollbar { height: 4px; }
 .scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Estado ativo durante o arraste com mouse/caneta */
+.scroll.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
+}
 
 /* Card */
 .card {
   flex-shrink: 0;
   width: 330px;
-  scroll-snap-align: start;
   background: var(--surf);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -57,6 +64,9 @@
   object-fit: cover;
   object-position: center top;
   display: block;
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
 }
 
 /*
